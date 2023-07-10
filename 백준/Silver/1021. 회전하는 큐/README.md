@@ -1,6 +1,6 @@
 # [Silver Ⅲ] 회전하는 큐 - 1021 
 
-[문제 링크](https://www.acmicpc.net/problem/1302) 
+[문제 링크](https://www.acmicpc.net/problem/1021) 
 
 ### 성능 요약
 
