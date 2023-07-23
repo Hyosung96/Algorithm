@@ -26,15 +26,9 @@ public class Main {
         int rank = 0;
         HashMap<Integer, Integer> map = new HashMap<>();
         for(int i =0; i<N; i++){
-            if(i!=0){
-                if(!map.containsKey(sort[i])){
+            if(!map.containsKey(sort[i])){
                     map.put(sort[i], rank);
                     rank++;
-                }
-            }
-            else{
-                map.put(sort[i], rank);
-                rank++;
             }
         }
 
