@@ -1,85 +1,63 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class Main {
-    public static void main(String args[]) throws Exception {
-    	Scanner sc = new Scanner(System.in);
-    	int n = sc.nextInt();
-    	int[] num = new int[n];
-    	ArrayList<Integer> list = new ArrayList<Integer>();
-    	double sum = 0;
-    	int sum2 = 0;
-    	int max = 0;
-    	int idx = 0;
-    	HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-    	for(int i = 0; i<n; i++) {
-    		num[i] = sc.nextInt();
-    		sum += num[i];
-    		sum2 += num[i];
-    		if(map.get(num[i]) != null) {
-    			int tmp = map.get(num[i]);
-    			tmp++;
-    			map.replace(num[i], tmp);
-    		}
-    		else {
-    			map.put(num[i], 1);
-    		}
-    	}
-    	Arrays.sort(num);
-    	if(sum > 0) {
-    		if(sum/n - sum2/n >= 0.5) {
-    			System.out.println(sum2/n +1);
-    		}
-    		else {
-        		System.out.println(sum2/n);
-        	}
-    	}
-    	else if (sum < 0) {
-    		if(sum2/n - sum/n >= 0.5) {
-    			System.out.println(sum2/n -1);
-    		}
-    		else {
-        		System.out.println(sum2/n);
-        	}
-    	}
-    	else {
-    		System.out.println(0);
-    	}
-    	
-    	
-    	System.out.println(num[n/2]);
-    	
-    	for(int i = 0; i<n; i++) {
-    		if(max < map.get(num[i])) {
-    			max = map.get(num[i]); 
-    			idx = i;
-    		}
-    	}
-    	list.add(num[idx]);
-    	
-    	for(int i = 0; i<n; i++) {
-    		if(max == map.get(num[i])) {
-    			if(num[idx] != num[i]) {
-    				list.add(num[i]);
-    			}
-    		}
-    	}
-    	int m = list.size();
-    	int[] com = new int[m];
-    	for(int i=0; i<m; i++) {
-    		com[i] = list.get(i);
-    	}
-    	Arrays.sort(com);
-    	if(com.length > 1) {
-    		System.out.println(com[1]);
-    	}
-    	else {
-    		System.out.println(num[idx]);
-    	}
-    	
-    	System.out.println(num[n-1] - num[0]);
-    	
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int N = Integer.parseInt(br.readLine());
+        double sum = 0;
+        int[] num = new int[N];
+        
+        for(int i=0; i<N; i++){
+            num[i] = Integer.parseInt(br.readLine());
+            sum += num[i];
+            if(map.containsKey(num[i])){
+                map.replace(num[i], map.get(num[i])+1);
+            }
+            else{
+                map.put(num[i], 1);
+            }
+        }
+        Arrays.sort(num);
+
+        //산술평균 출력
+        System.out.println(Math.round(sum/N));
+        //중앙값 출력
+        System.out.println(num[N/2]);
+        //최빈값 출력
+        int max = 0;
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i =0; i<N; i++){
+            max = Math.max(max, map.get(num[i]));
+        }
+        for(int i =0; i<N; i++){
+            int a = map.get(num[i]);
+            if(a == max){
+                if(i!=0){
+                    if(num[i-1] != num[i]){ //중복 값 제외
+                        list.add(num[i]);
+                    }
+                }
+                else {
+                    list.add(num[i]);
+                }
+            }
+        }
+
+        if(list.size()>1){
+            System.out.println(list.get(1));
+        }
+        else {
+            System.out.println(list.get(0));
+        }
+        //범위 출력
+        System.out.print(num[N-1] - num[0]);
+
     }
+
 }
