@@ -21,7 +21,7 @@ public class Main {
         // 시작 노드로부터의 거리를 0으로 설정
         distance[1] = 0;
 
-        // 간선 정보 입력받아 L 배열에 저장
+        // 간선 정보 입력받아 connect 배열에 저장
         for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
