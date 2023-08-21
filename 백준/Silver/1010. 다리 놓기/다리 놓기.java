@@ -5,10 +5,8 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        // 입력이랑 결과 보니..
-        // 순열과 조합
         // mCn
-        // m!/n!(m-n)!
+        // 점화식: m!/n!(m-n)!
         // 팩토리얼 재귀 구현
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
