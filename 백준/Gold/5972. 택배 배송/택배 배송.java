@@ -22,7 +22,7 @@ public class Main {
 
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        D = new int[N+1];
+        D = new int[N+1]; // 노드까지의 비용을 저장하는 배열
 
         // 그래프 초기화
         for (int i = 0; i <= N; i++) {
