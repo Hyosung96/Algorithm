@@ -28,7 +28,7 @@ public class Main {
         System.out.println(result.get(0)); //최솟값
     }
 
-    private static void dfs(int depth) { // num = 자릿수 저장, depth = 깊이 저장
+    private static void dfs(int depth) { // depth = 깊이 저장
         if (depth == k + 1) { // 마지막 depth일 경우 값 저장 후 이전 depth로 return
             StringBuilder sb = new StringBuilder();
             for(int i=0; i<=k; i++){
