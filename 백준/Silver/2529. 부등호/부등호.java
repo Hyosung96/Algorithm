@@ -16,7 +16,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         k = Integer.parseInt(br.readLine()); // 부등호 문자 개수
         sign = new String[k]; // 부등호 저장
-        isVisited = new boolean[10]; // 0~9 숫자방문여부 (중복숫자불가하므로)
+        isVisited = new boolean[10]; // 0~9 숫자방문여부 (중복숫자불가)
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < k; i++) {
             sign[i] = st.nextToken();
