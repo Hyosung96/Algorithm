@@ -76,7 +76,7 @@ public class Main {
         List<int[]> maxKeyPlaceList = placeMap.get(maxKey);
         List<Integer> range = new ArrayList<>();
         boolean isMax = false;
-        for(int i=0; i<50000; i++){
+        for(int i=0; i<50000; i++){ // 제일 많이 겹친 장소의 범위 탐색
             int cnt = 0;
             for(int j= 0; j<maxKeyPlaceList.size(); j++){ // cnt 세팅
                 if(maxKeyPlaceList.get(j)[0] <=i &&  maxKeyPlaceList.get(j)[1] >=i){ // 체크할 때와 다르게 End 지점을 포함
