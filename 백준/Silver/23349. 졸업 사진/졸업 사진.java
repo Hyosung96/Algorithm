@@ -46,13 +46,13 @@ public class Main {
 
         HashMap<String, Integer> placeCntMax = new HashMap<>();
 
-        for(int i=1; i<50000; i++){
+        for(int i=1; i<50000; i++){ // 탐색하며 장소별 최대 값 갱신
             for(String s : placeMap.keySet()){
                 int cnt = 0;
                 List<int[]> placeList = placeMap.get(s);
 
 
-                for(int j=0; j<placeList.size(); j++){
+                for(int j=0; j<placeList.size(); j++){ // 해당 장소로 저장된 값들 중 현재 범위 안에 들어가는 요소 탐색
                     if(placeList.get(j)[0] <=i &&  placeList.get(j)[1] >i){
                         cnt++;
                     }
