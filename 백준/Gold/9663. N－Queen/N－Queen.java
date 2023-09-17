@@ -22,7 +22,6 @@ public class Main {
         cnt = 0;
         dfs(0); // depth : 행
 
-
         System.out.println(cnt);
 
     }
@@ -33,7 +32,7 @@ public class Main {
         }
 
         for (int i = 0; i < N; i++) {
-            if (queenCheck(depth, i)) {
+            if (queenCheck(depth, i)) { // depth:행, i: 열
                 board[depth][i] = true;
                 dfs(depth + 1);
                 board[depth][i] = false;
@@ -42,14 +41,14 @@ public class Main {
     }
 
     public static boolean queenCheck(int x, int y){ //(1,1), (1,2)
-        for (int i = x -1; i >= 0; i--) { // 현재 행 이전까지만 조회
-            // 같은 열에 존재하는 경우
+        // 현재행 이전 ~ 맨 윗줄까지 탐색
+        // 같은 열에 퀸 있는지 체크
+        for (int i = x -1; i >= 0; i--) {
             if(board[i][y]) return false;
         }
         // 왼쪽 대각선 체크
         for (int i = x - 1, j = y - 1; i >= 0 && j >= 0; i--, j--) {
             if (board[i][j]) return false;
-
         }
         // 오른쪽 대각선 체크
         for (int i = x - 1, j = y + 1; i >= 0 && j < N; i--, j++) {
