@@ -54,7 +54,7 @@ public class Main {
             if(tx<0 || tx>=N || ty<0 || ty>=N) continue;
 
             if(board[tx][ty] > board[x][y]){
-                // dp 배열 최신화
+                // dp 배열 최신화, 각 방향마다 최대값 탐색(dp[x][y]에 저장
                 dp[x][y] = Math.max(dp[x][y],dfs(tx,ty)+1); // 한칸 더 전진할 때 마다 +1, dfs(dfs(dfs(1)+1)+1)...
             }
         }
