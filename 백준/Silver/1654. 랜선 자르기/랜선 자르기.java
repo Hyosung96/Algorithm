@@ -41,7 +41,8 @@ public class Main {
             if(count < N) {
                 max = half-1;
             }
-            // 원하는 랜선 갯수 보다 잘라진 랜선 수가 많을경우
+            // 원하는 랜선 갯수 보다 잘라진 랜선 수가 많거나, 같을 경우
+            // break 하지 않고, 값 증가 시켜줌(최대 길이 탐색)
             else {
                 min = half+1;
             }
